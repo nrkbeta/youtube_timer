@@ -5,8 +5,8 @@ class Command(NoArgsCommand):
 
     def handle_noargs(self, **options):
         from youtube_timer.utils import publish_entries
-        from youtube_timer.models import YouTubeEntry
-        entries = publish_entries(YouTubeEntry.objects.for_publishing())
+        
+        entries = publish_entries()
         if not entries:
             return 'Done, all published'
         return 'Could not publish these videos (look them up in the db): %s' % (', '.join(entries))

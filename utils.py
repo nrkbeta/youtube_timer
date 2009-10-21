@@ -46,8 +46,10 @@ def is_published(video_id):
     return False
     
 
-def publish_entries(entries, reverse=False):
+def publish_entries(entries=None, reverse=False):
     errors = []
+    if not entries:
+        entries = YouTubeEntry.objects.for_publishing()
     for entry in entries:
         try:
             item = YOUTUBE.GetYouTubeVideoEntry(video_id=entry.youtube_id)
