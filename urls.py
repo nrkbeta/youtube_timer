@@ -5,6 +5,10 @@ urlpatterns = patterns('youtube_timer.views',
     url(r'^$',
         view='overview',
         name='youtube_timer_overview'),
+    
+    url(r'^logout/$',
+        view='logout',
+        name='youtube_timer_logout'),
         
     url(r'^add_timer/$',
         view='add_timer',

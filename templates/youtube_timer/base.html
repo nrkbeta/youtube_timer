@@ -106,7 +106,7 @@
                     {% block menu_items %}
                         <li><a href="./" id="menu_overview">Overview</a></li>
                         <li><a href="./" id="menu_timer">New timer</a></li>
-                        <li><a href="/admin/logout/">(Log out)</a></li>
+                        <li><a href="{% url youtube_timer_logout %}">(Log out)</a></li>
                     {% endblock %}
                 </ul>
                 <div class="clearer"></div>

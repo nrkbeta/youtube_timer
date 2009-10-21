@@ -11,6 +11,11 @@ from django.contrib.auth.decorators import login_required
 from youtube_timer.models import YouTubeEntry
 from youtube_timer.utils import publish_entries, is_published
 
+def logout(request):
+    from django.contrib.auth import logout
+    logout(request)
+    return render_to_response('youtube_timer/login.html', {'logged_out': True})
+
 @login_required
 def overview(request):
     entries = YouTubeEntry.objects.all().order_by('-id')[:20]

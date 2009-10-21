@@ -17,10 +17,18 @@
 {% endblock %}
 
 {% block content %}
+{% if not logged_out %}
     <div id="login_box">
         <form action="" method="post" accept-charset="utf-8">
             {{ form.as_p }}
             <p><input type="submit" value="Login &rarr;"></p>
         </form>
     </div>
+{% else %}
+<div id="login_box">
+    <form>
+        <p>You're logged out! You can <a href="{% url youtube_timer_overview %}">log back in</a>, if you want...</p>
+    </form>
+</div>
+{% endif %}
 {% endblock %}
