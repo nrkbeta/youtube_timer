@@ -1,0 +1,139 @@
+* {
+    margin: 0; padding: 0;
+}
+.clearer {
+    clear: both;
+}
+
+body {
+    background: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 80%;
+    color: #222;
+}
+
+#new_job {
+    position: absolute;
+    background: white;
+    width: 100%;
+}
+
+#header {
+    background: #f1f1f1;
+    padding: 20px 0 0 0;
+}
+#content {
+    margin-top: 30px;
+    position: relative;
+    border-bottom: none;
+}
+
+em {
+    background: yellow;
+}
+div#w {
+    margin: 0 auto;
+    width: 600px;
+}
+form {
+    padding: 20px;
+    padding-bottom: 5px;
+    width: 600px;
+    margin: 10px 0;
+    background: #f4f4f4;
+    border: 10px solid #eee;
+    outline: 1px solid #ddd;
+}
+
+a {
+    color: #555;
+}
+
+form span {
+    font-size: 10px;
+    padding-left: 10px;
+}
+
+.button {
+    padding: 4px 10px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    background: #dd4223;
+    float: left;
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+.button:hover {
+    background: #b13117;
+}
+
+.green {
+    background: lightgreen;
+}
+.green:hover {
+    background: green;
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+}
+table th, table td {
+    text-align: left;
+    padding: 10px;
+    
+}
+tr.even {
+    background: #f6f6f6;
+}
+table thead {
+    background: #eee;
+}
+
+form p {
+    margin-bottom: 20px;
+}
+label, small {
+    display: block;
+}
+input[type="text"] {
+    padding: 3px;
+    border: 1px solid #ddd;
+    margin: 3px 0;
+}
+small {
+    color: #555;
+}
+label {
+    font-weight: bold;
+}
+.cw {
+    width: 900px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+h1 {
+    float: left;
+}
+
+#header ul {
+    float: right;
+    list-style: none;
+    padding-top: 10px;
+}
+#header li {
+    display: inline;
+    padding-left: 10px;
+}
+#header li a {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+    text-decoration: none;
+}

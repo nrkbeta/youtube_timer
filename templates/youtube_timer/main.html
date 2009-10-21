@@ -1,0 +1,22 @@
+{% extends "youtube_timer/base.html" %}
+
+{% block content %}
+    <h2>Latest jobs</h2>
+    <table id="job_table" border="0">
+        <thead>
+            <tr>
+                <th>YouTube-ID</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Published?</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for entry in entry_list %}
+                {% include "youtube_timer/entry_include.html" %}
+            {% endfor %}
+        </tbody>
+        
+    </table>
+{% endblock %}
