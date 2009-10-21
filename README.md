@@ -5,4 +5,4 @@ Used by The Norwegian Broadcasting Corporation to postpone airing of YouTube-vid
 
 ## Requirements
 - youtube_timer (duuh..)
-- (gdata)[http://code.google.com/p/gdata-python-client/]
+- [gdata](http://code.google.com/p/gdata-python-client/)
