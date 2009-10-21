@@ -1,0 +1,30 @@
+{% extends "youtube_timer/base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block initial_head %}
+    
+{% endblock %}
+
+{% block post_form %}
+    
+{% endblock %}
+
+{% block menu_items %}
+    
+{% endblock %}
+
+{% block content %}
+    <div id="login_box">
+        <form action="{% url youtube_timer_login %}" method="post" accept-charset="utf-8">
+            <p><label for="username">Username</label>
+                <input type="text" name="username" value="" id="username"></p>
+            
+            <p><label for="password">Password</label>
+                <input type="password" name="password" value="" id="password">
+            </p>
+
+            <p><input type="submit" value="Login &rarr;"></p>
+        </form>
+    </div>
+{% endblock %}
