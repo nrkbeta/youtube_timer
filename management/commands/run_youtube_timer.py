@@ -8,5 +8,5 @@ class Command(NoArgsCommand):
         
         entries = publish_entries()
         if not entries:
-            return 'Done, all published'
+            return
         return 'Could not publish these videos (look them up in the db): %s' % (', '.join(entries))
