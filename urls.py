@@ -5,11 +5,7 @@ urlpatterns = patterns('youtube_timer.views',
     url(r'^$',
         view='overview',
         name='youtube_timer_overview'),
-    
-    url(r'^login/$',
-        view='login',
-        name="youtube_timer_login"),
-    
+        
     url(r'^add_timer/$',
         view='add_timer',
         name='youtube_timer_add'),
