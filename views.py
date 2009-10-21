@@ -6,14 +6,17 @@ from django.shortcuts import render_to_response
 from django.utils.encoding import force_unicode
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib.auth.decorators import login_required
 
 from youtube_timer.models import YouTubeEntry
 from youtube_timer.utils import publish_entries, is_published
 
+@login_required
 def overview(request):
     entries = YouTubeEntry.objects.all().order_by('-id')[:20]
     return render_to_response('youtube_timer/main.html', {'entry_list': entries})
 
+@login_required
 def add_timer(request):
     data = request.POST
     entry = YouTubeEntry()
@@ -26,6 +29,7 @@ def add_timer(request):
     entry.save()
     return render_to_response('youtube_timer/entry_include.html', {'entry': entry})
 
+@login_required
 def force_publish(request):
     video_id = request.GET.get('video_id')
     entry = YouTubeEntry.objects.get(id=video_id)
@@ -34,6 +38,7 @@ def force_publish(request):
     entry.save()
     return render_to_response('youtube_timer/publish_status.html', {'entry': entry})
 
+@login_required
 def force_unpublish(request):
     video_id = request.GET.get('video_id')
     entry = YouTubeEntry.objects.get(id=video_id)
