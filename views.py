@@ -35,6 +35,7 @@ def delete(request):
 def add_timer(request):
     data = request.POST
     entry = YouTubeEntry()
+    entry.name = data.get('name', None)
     entry.youtube_id = data.get('youtube_id')
     entry.published = False
     entry.processed = False

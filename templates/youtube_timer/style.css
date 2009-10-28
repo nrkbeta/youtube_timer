@@ -109,7 +109,7 @@ form p {
 label, small {
     display: block;
 }
-input[type="text"] {
+input[type="text"], select {
     padding: 3px;
     border: 1px solid #ddd;
     margin: 3px 0;

@@ -32,6 +32,7 @@ class YouTubeEntry(models.Model):
     Holds the data regarding a YouTube video.
     The 'processed' boolean can be used for manually overriding a publish.
     """
+    name = models.CharField(blank=True, max_length=255)
     youtube_id = models.CharField(blank=True, max_length=255)
     pub_date = models.DateField()
     pub_time = models.TimeField()
