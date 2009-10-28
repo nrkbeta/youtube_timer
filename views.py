@@ -12,6 +12,9 @@ from youtube_timer.models import YouTubeEntry
 from youtube_timer.utils import publish_entries, is_published
 
 def logout(request):
+    """
+    Simple wrapper around django's auth logout with own template.
+    """
     from django.contrib.auth import logout
     logout(request)
     return render_to_response('youtube_timer/login.html', {'logged_out': True})

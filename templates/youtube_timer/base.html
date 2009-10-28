@@ -28,7 +28,7 @@
                $("#date_today").click(function(event) {
                    event.preventDefault();
                    today = new Date();
-                   month = today.getMonth();
+                   month = today.getMonth()+1;
                    day = today.getDate();
                    if (month<10) {
                        month = '0'+month;
