@@ -29,7 +29,7 @@ def add_timer(request):
     data = request.POST
     entry = YouTubeEntry()
     entry.youtube_id = data.get('youtube_id')
-    entry.published = is_published(data.get('youtube_id'))
+    entry.published = False
     day,month,year = data.get('date').split('.')
     hour,minute = data.get('time').split(':')
     entry.pub_date = datetime.date(int(year), int(month), int(day))
