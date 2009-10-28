@@ -69,7 +69,7 @@
                        event.preventDefault();
                        var elm = $(this);
                        $.get('{% url youtube_timer_delete %}', {'video_id': elm.attr('rel')}, function(data) {
-                           elm.parent().parent().delete();
+                           elm.parent().parent().remove();
                        });
                    })
                 });
