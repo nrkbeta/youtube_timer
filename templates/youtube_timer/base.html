@@ -13,6 +13,34 @@
             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
             <script>
             $(document).ready(function() {
+                // Courtesy of http://stackoverflow.com/questions/829355/jquery-synchronous-operation
+                $.fn.extend({
+                    serial_fade: function(o) {
+                        if(!o.speed || o.speed == undefined || o.speed == null) { o.speed = 'slow'; }
+                        if(!o.fade || o.fade == undefined || o.fade == null)    { o.fade = 'in'; }
+                        if(!o.index || o.index == undefined || o.index == null) { o.index = 0; }
+                        var s = this.selector;
+                        if(o.fade.toLowerCase() == 'in') {
+                            return this.eq(o.index).fadeIn(o.speed, function() {
+                                o.index++;
+                                if($(s).eq(o.index).length > 0) {
+                                    $(s).serial_fade({speed:o.speed,fade:o.fade,index:o.index});
+                                }
+                            });
+                        } else {
+                            return this.eq(o.index).fadeOut(o.speed, function() {
+                                o.index++;
+                                if($(s).eq(o.index).length > 0) {
+                                    $(s).serial_fade({speed:o.speed,fade:o.fade,index:o.index});
+                                }
+                            });
+                        }
+                    }
+                });
+                
+            })</script>
+            <script>
+            $(document).ready(function() {
                $("#menu_timer").click(function(event) {
                    event.preventDefault();
                    if ($("#new_job").css('display') == 'block') {
@@ -69,8 +97,10 @@
                        event.preventDefault();
                        var elm = $(this);
                        elm.html('Processing…');
+                       parent_row = elm.parent().parent();
                        $.get('{% url youtube_timer_delete %}', {'video_id': elm.attr('rel')}, function(data) {
-                           elm.parent().parent().remove();
+                           $(parent_row).serial_fade({speed: '1000', fade:'out'});
+                           $(parent_row).remove();
                        });
                    })
                 });
