@@ -1,6 +1,6 @@
 <tr>
     <td>{{ entry.name }}</td>
-    <td>{{ entry.youtube_id }}</td>
+    <td><a href="http://youtube.com/watch?v={{ entry.youtube_id }}">{{ entry.youtube_id }}</a></td>
     <td>{{ entry.pub_date|date:"Y.m.d" }}</td>
     <td>{{ entry.pub_time|time:"H:i" }}</td>
     <td>

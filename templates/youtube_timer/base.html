@@ -68,6 +68,7 @@
                    $('.delete').live('click', function (event) {
                        event.preventDefault();
                        var elm = $(this);
+                       elm.html('Processing…');
                        $.get('{% url youtube_timer_delete %}', {'video_id': elm.attr('rel')}, function(data) {
                            elm.parent().parent().remove();
                        });
