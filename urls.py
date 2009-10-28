@@ -14,6 +14,10 @@ urlpatterns = patterns('youtube_timer.views',
         view='add_timer',
         name='youtube_timer_add'),
     
+    url(r'^delete/$',
+        view='delete',
+        name='youtube_timer_delete'),
+    
     url(r'^force_publish/$',
         view='force_publish',
         name='youtube_timer_force_publish'),

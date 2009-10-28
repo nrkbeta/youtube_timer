@@ -46,4 +46,5 @@ class YouTubeEntry(models.Model):
     def save(self):
         if not self.id:
             self.processed = False
+            self.published = False
         super(YouTubeEntry, self).save()

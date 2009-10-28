@@ -35,15 +35,6 @@ def monkeypatch_videoentry(entry):
     edit_link.href = 'http://gdata.youtube.com/feeds/api/users/%s/uploads/%s' % (USERNAME, video_id)
     entry.link.append(edit_link)
     return entry
-
-def is_published(video_id):
-    """
-    Check if YouTube has a video marked as published.
-    """
-    item = YOUTUBE.GetYouTubeVideoEntry(video_id=video_id)
-    if not item.media.private:
-        return True
-    return False
     
 
 def publish_entries(entries=None, reverse=False):

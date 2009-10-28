@@ -25,11 +25,19 @@ def overview(request):
     return render_to_response('youtube_timer/main.html', {'entry_list': entries})
 
 @login_required
+def delete(request):
+    entry = YouTubeEntry.objects.get(id=request.GET.get('video_id'))
+    entry.delete()
+    return HttpResponse('%s deleted.' % request.GET.get('video_id'))
+    
+
+@login_required
 def add_timer(request):
     data = request.POST
     entry = YouTubeEntry()
     entry.youtube_id = data.get('youtube_id')
     entry.published = False
+    entry.processed = False
     day,month,year = data.get('date').split('.')
     hour,minute = data.get('time').split(':')
     entry.pub_date = datetime.date(int(year), int(month), int(day))

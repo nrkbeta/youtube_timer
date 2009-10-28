@@ -65,6 +65,13 @@
                            elm.parent().html(data);
                        });
                    });
+                   $('.delete').live('click', function (event) {
+                       event.preventDefault();
+                       var elm = $(this);
+                       $.get('{% url youtube_timer_delete %}', {'video_id': elm.attr('rel')}, function(data) {
+                           elm.parent().parent().delete();
+                       });
+                   })
                 });
             </script>
             
