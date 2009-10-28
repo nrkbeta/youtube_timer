@@ -1,10 +1,15 @@
 {% if entry.published %}
     <span style="float: left;">Yes</span>
     <a class="unpublish button" href="{% url youtube_timer_force_publish %}" rel="{{ entry.id }}">Undo?</a>
+    {% if entry.processed %}
+        <small class="warning">Publishing of this entry has been manually overridden.</small>
+    {% endif %}
     <div class="clearer"></div>
-    
 {% else %}
     <span style="float: left;">No</span> 
     <a class="publish button green" href="{% url youtube_timer_force_publish %}" rel="{{ entry.id }}">Publish now.</a>
+    {% if entry.processed %}
+        <small class="warning">Publishing of this entry has been manually overridden.</small>
+    {% endif %}
     <div class="clearer"></div>
 {% endif %}

@@ -5,6 +5,14 @@
     clear: both;
 }
 
+.warning {
+    text-transform: uppercase;
+    clear: left;
+    display: block;
+    padding: 3px;
+    background: yellow;
+}
+
 body {
     background: white;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
