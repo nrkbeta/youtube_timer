@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 
 from youtube_timer.models import YouTubeEntry
-from youtube_timer.utils import publish_entries, is_published
+from youtube_timer.utils import publish_entries
 
 def logout(request):
     """
