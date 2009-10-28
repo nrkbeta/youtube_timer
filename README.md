@@ -7,7 +7,7 @@ Used by The Norwegian Broadcasting Corporation to postpone airing of YouTube-vid
 - youtube_timer (…of course)
 - django > 1.0
 - [gdata](http://code.google.com/p/gdata-python-client/)
-- [YouTube Developer Key](code.google.com/apis/youtube/dashboard/gwt/index.html)
+- [YouTube Developer Key](http://code.google.com/apis/youtube/dashboard/gwt/index.html)
 
 ## Setup
 
