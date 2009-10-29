@@ -1,3 +1,11 @@
+"""
+"THE BEER-WARE LICENSE" (Revision 42):
+---------------------------------------
+<henriklied@gmail.com> wrote this file. As long as you retain this notice you
+can do whatever you want with this stuff. If we meet some day, and you think
+this stuff is worth it, you can buy me a beer in return. Henrik Lied
+
+"""
 import datetime
 import gdata
 from gdata.youtube.service import YouTubeService
@@ -38,7 +46,16 @@ def monkeypatch_videoentry(entry):
     
 
 def publish_entries(entries=None, reverse=False):
+    """
+    Publish a list of videos through the gdata.youtube api.
+    If entries is None, we'll loop through the YouTubeEntry instances in for_publishing()
+    
+    If reverse is True, the process is reversed. All of the entries will be made Private.
+    
+    Will return a list of YouTubeEntry id's who didn't make publishing. If none, everything went fine.
+    """
     errors = []
+    
     if not entries:
         entries = YouTubeEntry.objects.for_publishing()
     for entry in entries:

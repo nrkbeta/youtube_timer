@@ -1,3 +1,11 @@
+"""
+"THE BEER-WARE LICENSE" (Revision 42):
+---------------------------------------
+<henriklied@gmail.com> wrote this file. As long as you retain this notice you
+can do whatever you want with this stuff. If we meet some day, and you think
+this stuff is worth it, you can buy me a beer in return. Henrik Lied
+
+"""
 import datetime
 
 from django.http import *
@@ -21,11 +29,18 @@ def logout(request):
 
 @login_required
 def overview(request):
+    """
+    Shows the last 20 YouTubeEntry instances on the frontpage.
+    """
     entries = YouTubeEntry.objects.all().order_by('-id')[:20]
     return render_to_response('youtube_timer/main.html', {'entry_list': entries})
 
 @login_required
 def delete(request):
+    """
+    AJAX view to delete a YouTubeEntry instance.
+    Takes only request as argument, but request.GET needs to have a 'video_id' param.
+    """
     entry = YouTubeEntry.objects.get(id=request.GET.get('video_id'))
     entry.delete()
     return HttpResponse('%s deleted.' % request.GET.get('video_id'))
@@ -33,6 +48,10 @@ def delete(request):
 
 @login_required
 def add_timer(request):
+    """
+    AJAX view to add a timer. Should really map this to a django.form,
+    but first iterations always suck. :-)
+    """
     data = request.POST
     entry = YouTubeEntry()
     entry.name = data.get('name', None)
@@ -48,6 +67,9 @@ def add_timer(request):
 
 @login_required
 def force_publish(request):
+    """
+    Force publishing of a video.
+    """
     video_id = request.GET.get('video_id')
     entry = YouTubeEntry.objects.get(id=video_id)
     published = publish_entries([entry])
@@ -57,9 +79,12 @@ def force_publish(request):
 
 @login_required
 def force_unpublish(request):
+    """
+    Remove "public" status from a video.
+    """
     video_id = request.GET.get('video_id')
     entry = YouTubeEntry.objects.get(id=video_id)
-    unpublished = publish_entries([entry], True)
+    unpublished = publish_entries([entry], reverse=True)
     entry.processed = True
     entry.save()
     return render_to_response('youtube_timer/publish_status.html', {'entry': entry})
